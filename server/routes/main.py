@@ -23,8 +23,8 @@ class ApplicationStage(Enum):
 @dataclass
 class Application:
     name: str
-    applied_date: int = time.time()
-    last_action: int = time.time()
+    applied_date: int = int(time.time())
+    last_action: int = int(time.time())
     stage: ApplicationStage = ApplicationStage.TO_APPLY.value
     answered: bool = False
     rejected: bool = False
@@ -35,11 +35,11 @@ class Application:
     cover_letter_name: str = ""
 
 
-
 bp = Blueprint(
     "main",
     __name__,
 )
+
 
 @bp.get("/new/<name>")
 def create_new_app(name):
@@ -47,8 +47,6 @@ def create_new_app(name):
     for app in ["foo", "bar", "baz"]:
         applications.append(Application(name=app))
     return jsonify(applications)
-
-
 
 
 @bp.get("/")
@@ -88,14 +86,11 @@ def index():
         for app in applications:
             writer.writerow(asdict(app))
 
-    # Reading from a CSV file
     with open("applications.csv", "r", newline="") as file:
         reader = csv.DictReader(file)
         applications = [application_from_dict(row) for row in reader]
-        data=jsonify(applications)
     return render_template(
-        # "index.html", data=json.dumps(applications, indent=4, default=asdict)
-        "index.html", data=data.json
+        "index.html", data=json.dumps(applications, indent=4, default=asdict)
     )
 
 

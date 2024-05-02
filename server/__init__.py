@@ -8,7 +8,6 @@ load_dotenv()
 
 
 def create_app(config_class=Config):
-    
     app = FlaskLambda(__name__)
 
     @app.cli.command("serve")
