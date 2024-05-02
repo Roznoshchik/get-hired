@@ -1,48 +1,10 @@
 import csv
-from dataclasses import dataclass, asdict, fields
-from enum import Enum
+from dataclasses import asdict, fields
 import json
-import time
 
 from flask import render_template, Blueprint, jsonify
 
-
-class ApplicationStage(Enum):
-    TO_APPLY = "Waiting to apply"
-    APPLIED = "Applied"
-    SCHEDULED = "Interview scheduled"
-    INTRO_CALL = "Intro call"
-    TECH_INTERVIEW = "Technical interview"
-    CULTURE_INTERVIEW = "Culture interview"
-    WAITING_FOR_OFFER = "Waiting for offer"
-    REJECTED = "Rejected"
-    RECEIVED_OFFER = "Received offer"
-    DECLINED_OFFER = "Offer declined"
-
-
-@dataclass
-class Application:
-    name: str
-    applied_date: int = int(time.time())
-    last_action: int = int(time.time())
-    stage: ApplicationStage = ApplicationStage.TO_APPLY.value
-    answered: bool = False
-    rejected: bool = False
-    points_of_contact: str = ""
-    notes: str = ""
-    url: str = ""
-    used_cover_letter: bool = False
-    cover_letter_name: str = ""
-
-    @classmethod
-    def from_dict(cls, dict):
-        dict["stage"] = ApplicationStage(dict["stage"]).value
-        dict["answered"] = dict["answered"].upper() == "TRUE"
-        dict["rejected"] = dict["rejected"].upper() == "TRUE"
-        dict["used_cover_letter"] = dict["used_cover_letter"].upper() == "TRUE"
-
-        return cls(**dict)
-
+from ..models.Application import Application
 
 bp = Blueprint(
     "main",
