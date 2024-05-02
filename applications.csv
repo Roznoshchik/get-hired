@@ -1,3 +1,5 @@
 name,applied_date,last_action,stage,answered,rejected,points_of_contact,notes,url,used_cover_letter,cover_letter_name
-"Acme, inc.",20230401,20230402,Applied,True,False,John Doe,Initial application,http://example.com,True,cover_letter_1.pdf
-"FOO, inc.",1714621977.843435,1714621977.843436,Waiting to apply,False,False,Alan Walker,Thought they were cool,http://example.com,True,cover_letter_2.pdf
+bar,1714625647,1714625647,Waiting to apply,False,False,,,,False,
+baz,1714625647,1714625647,Waiting to apply,False,False,,,,False,
+foo_boar,1714625647,1714625647,Waiting to apply,False,False,,,,False,
+amaaaa,1714625712,1714625712,Waiting to apply,False,False,,,,False,

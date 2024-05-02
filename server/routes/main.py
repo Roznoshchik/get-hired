@@ -34,6 +34,15 @@ class Application:
     used_cover_letter: bool = False
     cover_letter_name: str = ""
 
+    @classmethod
+    def from_dict(cls, dict):
+        dict["stage"] = ApplicationStage(dict["stage"]).value
+        dict["answered"] = dict["answered"].upper() == "TRUE"
+        dict["rejected"] = dict["rejected"].upper() == "TRUE"
+        dict["used_cover_letter"] = dict["used_cover_letter"].upper() == "TRUE"
+
+        return cls(**dict)
+
 
 bp = Blueprint(
     "main",
@@ -43,60 +52,19 @@ bp = Blueprint(
 
 @bp.get("/new/<name>")
 def create_new_app(name):
-    applications = []
-    for app in ["foo", "bar", "baz"]:
-        applications.append(Application(name=app))
-    return jsonify(applications)
+    app = Application(name=name)
+    with open("applications.csv", "a", newline="") as file:
+        writer = csv.DictWriter(file, fieldnames=[f.name for f in fields(Application)])
+        writer.writerow(asdict(app))
+    return jsonify(app)
 
 
 @bp.get("/")
 def index():
-    applications = [
-        Application(
-            "Acme, inc.",
-            20230401,
-            20230402,
-            ApplicationStage.APPLIED.value,
-            True,
-            False,
-            "John Doe",
-            "Initial application",
-            "http://example.com",
-            True,
-            "cover_letter_1.pdf",
-        ),
-        Application(
-            "FOO, inc.",
-            time.time(),
-            time.time(),
-            ApplicationStage.TO_APPLY.value,
-            False,
-            False,
-            "Alan Walker",
-            "Thought they were cool",
-            "http://example.com",
-            True,
-            "cover_letter_2.pdf",
-        ),
-    ]
-
-    with open("applications.csv", "w", newline="") as file:
-        writer = csv.DictWriter(file, fieldnames=[f.name for f in fields(Application)])
-        writer.writeheader()
-        for app in applications:
-            writer.writerow(asdict(app))
-
     with open("applications.csv", "r", newline="") as file:
         reader = csv.DictReader(file)
-        applications = [application_from_dict(row) for row in reader]
+        applications = [Application.from_dict(row) for row in reader]
+
     return render_template(
         "index.html", data=json.dumps(applications, indent=4, default=asdict)
     )
-
-
-def application_from_dict(row):
-    row["stage"] = ApplicationStage(row["stage"]).value
-    row["answered"] = row["answered"].upper() == "TRUE"
-    row["rejected"] = row["rejected"].upper() == "TRUE"
-    row["used_cover_letter"] = row["used_cover_letter"].upper() == "TRUE"
-    return Application(**row)
