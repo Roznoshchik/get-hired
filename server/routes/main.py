@@ -96,7 +96,7 @@ def index():
 
 def application_from_dict(row):
     row["stage"] = ApplicationStage(row["stage"]).value
-    row["answered"] = row["answered"] == "TRUE"
-    row["rejected"] = row["rejected"] == "TRUE"
-    row["used_cover_letter"] = row["used_cover_letter"] == "TRUE"
+    row["answered"] = row["answered"].upper() == "TRUE"
+    row["rejected"] = row["rejected"].upper() == "TRUE"
+    row["used_cover_letter"] = row["used_cover_letter"].upper() == "TRUE"
     return Application(**row)
