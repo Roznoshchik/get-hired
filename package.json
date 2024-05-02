@@ -1,0 +1,19 @@
+{
+  "name": "tracker",
+  "version": "1.0.0",
+  "description": "a job tracker",
+  "main": "client/static/script.ts",
+  "scripts": {
+    "test": "vitest",
+    "build": "vite build",
+    "start": "vite",
+    "preview": "vite preview"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "vite": "^5.2.10",
+    "vitest": "^1.5.3"
+  }
+}

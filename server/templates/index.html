@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {%- if not is_production %}
+    <script type="module" src="{{ asset('@vite/client') }}"></script>
+    {%- endif %}
+    <link rel="stylesheet" href="{{ asset('styles.css') }}" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get Hired</title>
+  </head>
+  <body>
+    <h1>Lets Get Hired!</h1>
+    <pre>{{ data | tojson(indent=4) }}</pre>
+    <script type="module" src="{{ asset('script.ts') }}"></script>
+  </body>
+</html>
