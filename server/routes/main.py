@@ -1,6 +1,5 @@
 import csv
 from dataclasses import asdict, fields
-import json
 
 from flask import render_template, Blueprint, jsonify
 
@@ -21,12 +20,15 @@ def create_new_app(name):
     return jsonify(app)
 
 
-@bp.get("/")
-def index():
+@bp.get("/data")
+def get_applications():
     with open("applications.csv", "r", newline="") as file:
         reader = csv.DictReader(file)
-        applications = [Application.from_dict(row) for row in reader]
+        applications = [Application.from_dict(row).to_json() for row in reader]
 
-    return render_template(
-        "index.html", data=json.dumps(applications, indent=4, default=asdict)
-    )
+    return jsonify(applications)
+
+
+@bp.get("/")
+def index():
+    return render_template("index.html")
