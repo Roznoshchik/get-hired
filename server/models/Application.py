@@ -8,7 +8,7 @@ class ApplicationStage(Enum):
     APPLIED = "Applied"
     SCHEDULED = "Interview scheduled"
     STAGE_ONE = "Stage one - intro call"
-    STAGE_TWO = "Stage two - technical or team"
+    STAGE_TWO = "Stage two - skills check"
     STAGE_THREE = "Stage three - cultural fit"
     WAITING_FOR_OFFER = "Waiting for offer"
     REJECTED = "Rejected"

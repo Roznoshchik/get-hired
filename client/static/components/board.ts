@@ -7,7 +7,7 @@ class Board extends HTMLElement {
     ["Applied", []],
     ["Interview scheduled", []],
     ["Stage one - intro call", []],
-    ["Stage two - technical or team", []],
+    ["Stage two - skills check", []],
     ["Stage three - cultural fit", []],
     ["Waiting for offer", []],
     ["Rejected", []],
@@ -23,18 +23,16 @@ class Board extends HTMLElement {
       const stage: ApplicationStage = app.stage;
       this.divided_apps.get(stage)?.push(app);
     }
+    this.classList.add('board')
     this.render();
   }
 
   render() {
     this.innerHTML = /*html*/ `
-    <div class="board">
-      <h1>Lets Get Hired!</h1>
-      <div class = "columns">
-      </div>
+    <h1>Lets Get Hired!</h1>
+    <div class = "columns">
     </div>
     `;
-
     const columns = Array.from(
       this.divided_apps,
       ([stage, apps]) => new Column(stage, apps, ["column"])

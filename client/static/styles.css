@@ -3,53 +3,49 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  font-family: sans-serif;
 }
 
-job-board {
-  height: 100%;
+
+.board {
+  padding: 16px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 
-  .board {
-    padding: 16px;
+  .columns {
     display: flex;
-    flex-direction: column;
     flex-grow: 1;
+    overflow-x: auto;
 
-    .columns {
+    .column {
+      background-color: aliceblue;
+      border: 1px solid darkgray;
+      margin-right: 8px;
+      padding: 16px;
+      width: 200px;
+      border-radius: 12px;
+      flex-shrink: 0;
       display: flex;
-      flex-grow: 1;
-      overflow-x: auto;
-
-      .column {
-        background-color: aliceblue;
-        border: 1px solid darkgray;
-        margin-right: 8px;
-        padding: 16px;
-        width: 200px;
-        border-radius: 12px;
-        flex-shrink: 0;
-        display: flex;
-        flex-direction: column;
+      flex-direction: column;
 
 
-        h2 {
-          font-size: 20px;
-        }
-
-        .card {
-          border: darkgoldenrod 1px solid;
-          background-color: antiquewhite;
-          padding: 8px;
-          border-radius: 12px;
-          margin-bottom: 8px;
-          cursor: pointer;
-        }
-
+      h2 {
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        color:grey;
       }
+
+      .card {
+        border: darkgoldenrod 1px solid;
+        background-color: antiquewhite;
+        padding: 8px;
+        border-radius: 12px;
+        margin-bottom: 8px;
+        cursor: pointer;
+      }
+
     }
   }
-
-
 }

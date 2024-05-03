@@ -4,7 +4,7 @@ declare global {
     "Applied" |
     "Interview scheduled" |
     "Stage one - intro call" |
-    "Stage two - technical or team" |
+    "Stage two - skills check" |
     "Stage three - cultural fit" |
     "Waiting for offer" |
     "Rejected" |
