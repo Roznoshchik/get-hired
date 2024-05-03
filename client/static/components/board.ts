@@ -2,30 +2,22 @@ import Column from "./column";
 
 class Board extends HTMLElement {
   applications: Application[] = [];
-  divided_apps: Map<ApplicationStage, Application[]> = new Map();
+  divided_apps: Map<ApplicationStage, Application[]> = new Map([
+    ["Waiting to apply", []],
+    ["Applied", []],
+    ["Interview scheduled", []],
+    ["Stage one - intro call", []],
+    ["Stage two - technical or team", []],
+    ["Stage three - cultural fit", []],
+    ["Waiting for offer", []],
+    ["Rejected", []],
+    ["Received offer", []],
+    ["Offer declined", []],
+  ]);
 
   constructor(applications: Application[]) {
     super();
     this.applications = applications;
-
-    const all_stages: ApplicationStage[] = [
-      "Waiting to apply",
-      "Applied",
-      "Interview scheduled",
-      "Stage one - intro call",
-      "Stage two - technical or team",
-      "Stage three - cultural fit",
-      "Waiting for offer",
-      "Rejected",
-      "Received offer",
-      "Offer declined",
-    ];
-
-    all_stages.forEach((stage) => {
-      if (!this.divided_apps.has(stage)) {
-        this.divided_apps.set(stage, []);
-      }
-    });
 
     for (let app of this.applications) {
       const stage: ApplicationStage = app.stage;
