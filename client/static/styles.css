@@ -21,18 +21,15 @@ job-board {
       display: flex;
       flex-grow: 1;
       overflow-x: auto;
-      /* Ensures horizontal scrolling */
 
       .column {
         background-color: aliceblue;
         border: 1px solid darkgray;
         margin-right: 8px;
         padding: 16px;
-        min-width: 100px;
-        /* Ensures that each column has a minimum width */
+        width: 200px;
         border-radius: 12px;
         flex-shrink: 0;
-        /* Prevents the column from shrinking smaller than its content */
         display: flex;
         flex-direction: column;
 
@@ -46,6 +43,8 @@ job-board {
           background-color: antiquewhite;
           padding: 8px;
           border-radius: 12px;
+          margin-bottom: 8px;
+          cursor: pointer;
         }
 
       }
