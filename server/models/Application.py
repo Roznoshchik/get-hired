@@ -38,3 +38,18 @@ class Application:
         dict["used_cover_letter"] = dict["used_cover_letter"].upper() == "TRUE"
 
         return cls(**dict)
+
+    def to_json(self):
+        return {
+            "name": self.name,
+            "appliedDate": self.applied_date,
+            "lastAction": self.last_action,
+            "stage": self.stage,
+            "answered": self.answered,
+            "rejected": self.rejected,
+            "pointsOfContact": self.points_of_contact,
+            "notes": self.notes,
+            "url": self.url,
+            "usedCoverLetter": self.used_cover_letter,
+            "coverLetterName": self.cover_letter_name,
+        }
