@@ -40,6 +40,7 @@ class Application:
         return cls(**dict)
 
     def to_json(self):
+        """returns camelCased dictionary ready for serializing"""
         return {
             "name": self.name,
             "appliedDate": self.applied_date,
@@ -53,3 +54,20 @@ class Application:
             "usedCoverLetter": self.used_cover_letter,
             "coverLetterName": self.cover_letter_name,
         }
+
+    @classmethod
+    def from_json(cls, dict):
+        """loads an Application from a camelCased dictionary"""
+        return cls(
+            name=dict["name"],
+            applied_date=dict["appliedDate"],
+            last_action=dict["lastAction"],
+            stage=dict["stage"],
+            answered=dict["answered"],
+            rejected=dict["rejected"],
+            points_of_contact=dict["pointsOfContact"],
+            notes=dict["notes"],
+            url=dict["url"],
+            used_cover_letter=dict["usedCoverLetter"],
+            cover_letter_name=dict["coverLetterName"],
+        )

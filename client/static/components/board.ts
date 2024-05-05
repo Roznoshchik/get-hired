@@ -40,6 +40,20 @@ class Board extends HTMLElement {
 
     this.querySelector(".columns")?.append(...columns);
   }
+
+  async postData() {
+    const res = await fetch("/data", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(this.applications)
+    })
+
+    if (!res.ok) {
+      console.error("Couldn't save data")
+    }
+  }
 }
 
 if (!customElements.get("job-board")) {

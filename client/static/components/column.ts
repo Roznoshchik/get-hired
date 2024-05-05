@@ -63,6 +63,8 @@ class Column extends HTMLElement {
         targetApp.stage = this.stage;
         this.apps.push(targetApp);
         this.appendChild(targetElem);
+
+        board.postData()
       }
     });
   }

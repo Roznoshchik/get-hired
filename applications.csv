@@ -1,11 +1,11 @@
 name,applied_date,last_action,stage,answered,rejected,points_of_contact,notes,url,used_cover_letter,cover_letter_name
-TechCorp,1721011400,1721011500,Applied,True,False,hr@techcorp.com,"Great opportunity, follow up next week",http://techcorp.com/careers,True,Cover_Letter_TechCorp
-InnovateLLC,1720925000,1720925100,Stage two - skills check,True,False,hiring@innovatellc.com,"Need to prepare for technical interview",http://innovatellc.com/jobs,True,Cover_Letter_InnovateLLC
-HealthPlus,1720838600,1720838700,Received offer,True,False,contact@healthplus.com,"Offer received, considering options",http://healthplus.com/job3,False,
-EduSoft,1720752200,1720752300,Rejected,False,True,careers@edusoft.com,"Not a fit for the role, feedback was positive",http://edusoft.com/job4,False,
-AutoDesign,1720665800,1720665900,Interview scheduled,False,False,apply@autodesign.com,"Interview scheduled, need to confirm date",http://autodesign.com/careers,True,Cover_Letter_AutoDesign
-FinancePro,1720579400,1720579500,Waiting for offer,False,False,info@financepro.com,"All stages complete, awaiting decision",http://financepro.com/careers,False,
-BioTechX,1720493000,1720493100,Stage three - cultural fit,False,False,hr@biotechx.com,"Cultural fit interview next week",http://biotechx.com/job7,True,Cover_Letter_BioTechX
-GreenEnergy,1720406600,1720406700,Stage one - intro call,True,False,jobs@greenenergy.com,"Good first call, very engaging",http://greenenergy.com/careers,False,
-MegaMedia,1720320200,1720320300,Applied,False,False,careers@megamedia.com,"Applied last week, no response yet",http://megamedia.com/jobs,True,Cover_Letter_MegaMedia
-CreativeSolutions,1720233800,1720233900,Applied,False,False,hire@creativesolutions.com,"Will check in two weeks if no reply",http://creativesolutions.com/careers,True,Cover_Letter_CreativeSolutions
+TechCorp,1721011400,1721011500,Waiting to apply,True,False,hr@techcorp.com,"Great opportunity, follow up next week",http://techcorp.com/careers,True,Cover_Letter_TechCorp
+InnovateLLC,1720925000,1720925100,Waiting to apply,True,False,hiring@innovatellc.com,Need to prepare for technical interview,http://innovatellc.com/jobs,True,Cover_Letter_InnovateLLC
+HealthPlus,1720838600,1720838700,Waiting to apply,True,False,contact@healthplus.com,"Offer received, considering options",http://healthplus.com/job3,False,
+EduSoft,1720752200,1720752300,Waiting to apply,False,True,careers@edusoft.com,"Not a fit for the role, feedback was positive",http://edusoft.com/job4,False,
+AutoDesign,1720665800,1720665900,Waiting to apply,False,False,apply@autodesign.com,"Interview scheduled, need to confirm date",http://autodesign.com/careers,True,Cover_Letter_AutoDesign
+FinancePro,1720579400,1720579500,Waiting to apply,False,False,info@financepro.com,"All stages complete, awaiting decision",http://financepro.com/careers,False,
+BioTechX,1720493000,1720493100,Waiting to apply,False,False,hr@biotechx.com,Cultural fit interview next week,http://biotechx.com/job7,True,Cover_Letter_BioTechX
+GreenEnergy,1720406600,1720406700,Waiting to apply,True,False,jobs@greenenergy.com,"Good first call, very engaging",http://greenenergy.com/careers,False,
+MegaMedia,1720320200,1720320300,Waiting to apply,False,False,careers@megamedia.com,"Applied last week, no response yet",http://megamedia.com/jobs,True,Cover_Letter_MegaMedia
+CreativeSolutions,1720233800,1720233900,Waiting to apply,False,False,hire@creativesolutions.com,Will check in two weeks if no reply,http://creativesolutions.com/careers,True,Cover_Letter_CreativeSolutions

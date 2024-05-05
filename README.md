@@ -9,11 +9,11 @@ A simple application for tracking your job search
 - [X] read job applications into js
 - [X] visualize job applications as todo board
 - [X] make job board functional
+- [X] send updates to server
 - [ ] make application modal to view details
 - [ ] create statistics board
 - [ ] create recommendations panel
 - [ ] create filters
-- [ ] send updates to server
 - [ ] create new application
 - [ ] create data analysis (by cover letter?)
 - [ ] integrate with fileStorage ? google sheets ? s3
