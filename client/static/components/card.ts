@@ -9,7 +9,9 @@ class JobCard extends HTMLElement {
     for (let cls of classes) {
       this.classList.add(cls);
     }
-
+    this.setAttribute('draggable', 'true')
+    this.setAttribute('data-name', app.name)
+    this.addEventListener('dragstart', (ev) => ev.dataTransfer?.setData('text/plain', app.name))
     this.render();
   }
 

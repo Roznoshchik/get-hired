@@ -29,6 +29,10 @@ body {
       display: flex;
       flex-direction: column;
 
+      &.dragover {
+        background-color: rgb(210, 216, 222);
+      }
+
 
       h2 {
         font-size: 12px;

@@ -8,7 +8,7 @@ A simple application for tracking your job search
 - [X] create dummy csv data
 - [X] read job applications into js
 - [X] visualize job applications as todo board
-- [ ] make todo board functional
+- [X] make job board functional
 - [ ] make application modal to view details
 - [ ] create statistics board
 - [ ] create recommendations panel
