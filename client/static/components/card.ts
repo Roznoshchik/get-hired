@@ -1,3 +1,4 @@
+import JobDialog from "./dialog";
 class JobCard extends HTMLElement {
   app: Application;
 
@@ -11,7 +12,12 @@ class JobCard extends HTMLElement {
     }
     this.setAttribute('draggable', 'true')
     this.setAttribute('data-name', app.name)
-    this.addEventListener('dragstart', (ev) => ev.dataTransfer?.setData('text/plain', app.name))
+    this.addEventListener('dragstart', (ev) => ev.dataTransfer?.setData('text/plain', app.name));
+    this.onclick = () => {
+      const dialog = new JobDialog(this.app);
+      document.body.appendChild(dialog);
+      dialog.showModal();
+    }
     this.render();
   }
 

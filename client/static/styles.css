@@ -6,6 +6,45 @@ body {
   font-family: sans-serif;
 }
 
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: unset;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  img,
+  picture,
+  svg,
+  canvas {
+    display: block;
+    max-inline-size: 100%;
+    block-size: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
 
 .board {
   padding: 16px;
@@ -52,4 +91,71 @@ body {
 
     }
   }
+}
+
+.job-dialog {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  min-width: 300px;
+  width: 40%;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: none;
+  height: 80%;
+
+  * {
+    margin-bottom: 16px;
+  }
+
+  #close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+  }
+
+  label {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color:grey;
+    margin-right: auto;
+    margin-bottom: 8px;
+
+  }
+
+  #name {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.5em;
+    margin-right: auto;
+
+    &:read-only {
+      border: none;
+      outline: none;
+    }
+  }
+
+  input {
+    margin-right: auto;
+  }
+
+  textarea {
+    resize: none;
+    margin-right: auto;
+    width: 100%;
+    height: auto;
+
+    &:read-only {
+      border: none;
+      outline: none;
+    }
+  }
+
+  select {
+    margin-right: auto;
+    margin-bottom: 16px;
+  }
+
 }
