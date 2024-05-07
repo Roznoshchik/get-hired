@@ -47,13 +47,24 @@ class JobDialog extends HTMLDialogElement {
     this.innerHTML = /*html*/ `
       <button id="close" aria-label="close">X</button>
       <input readonly id="name"  value="${this.app.name}" />
+
+      <label for="url">Url</label>
+      <input readonly type="text" id="url" value="${this.app.url}"/>
+
       <label for="notes">Notes</label>
-      <textarea readonly id="notes">${this.app.notes}</textarea>
+      <div class="textarea-wrapper">
+        <textarea readonly id="notes">${this.app.notes}</textarea>
+      </div>
 
       <label for="stage">stage</label>
       <select id="stage">
         ${[...board.divided_apps.keys()]
-          .map((stage) => `<option value="${stage}">${stage}</option>`)
+          .map(
+            (stage) =>
+              `<option value="${stage}" ${
+                stage == this.app.stage ? "selected" : ""
+              }>${stage}</option>`
+          )
           .join("")}
       </select>
 
@@ -62,19 +73,41 @@ class JobDialog extends HTMLDialogElement {
 
       <label for="lastAction">Last action</label>
       <input type="date" id="lastAction" value="${lastAction}" />
+
+      <label for="answered">Answered</label>
+      <input type="checkbox" id="answered" ${
+        this.app.answered ? "checked" : ""
+      }/>
+
+      <label for="rejected">Rejected</label>
+      <input type="checkbox" id="rejected" ${
+        this.app.rejected ? "checked" : ""
+      }/>
+
+      <label for="usedCoverLetter">Used cover letter</label>
+      <input type="checkbox" id="usedCoverLetter" ${
+        this.app.usedCoverLetter ? "checked" : ""
+      }/>
+
+      <label for="coverLetterName">Cover letter name</label>
+      <input readonly type="text" id="coverLetterName" value="${
+        this.app.coverLetterName
+      }"/>
     `;
 
-    const name = this.querySelector("#name") as HTMLInputElement;
     const notes = this.querySelector("#notes") as HTMLTextAreaElement;
-
-    name.onclick = () => (name.readOnly = false);
+    notes.oninput = () => {
+      notes.style.height = "auto";
+      notes.style.height = notes.scrollHeight + "px";
+    };
     notes.onclick = () => (notes.readOnly = false);
-
-    const stage = this.querySelector("#stage") as HTMLSelectElement;
-    stage.value = this.app.stage;
 
     const close = this.querySelector("#close") as HTMLButtonElement;
     close.onclick = () => this.close();
+
+    const inputs = this.querySelectorAll<HTMLInputElement>("input[type='text']");
+    inputs.forEach((input) => (input.onclick = () => (input.readOnly = false)));
+
   }
 
   getDate(unix_timestamp: number) {

@@ -10,7 +10,8 @@ A simple application for tracking your job search
 - [X] visualize job applications as todo board
 - [X] make job board functional
 - [X] send updates to server
-- [ ] make application modal to view details
+- [X] make application modal to view details
+- [ ] persist changes in modal to csv
 - [ ] create statistics board
 - [ ] create recommendations panel
 - [ ] create filters
