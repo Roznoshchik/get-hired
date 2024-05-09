@@ -11,6 +11,7 @@ class ApplicationTests(unittest.TestCase):
         self.assertEqual(
             asdict(app),
             {
+                "id": app.id,
                 "name": "foo",
                 "applied_date": int(time.time()),
                 "last_action": int(time.time()),

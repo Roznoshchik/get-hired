@@ -54,6 +54,35 @@ def post_applications():
         return jsonify(), HTTPStatus.INTERNAL_SERVER_ERROR
 
 
+@bp.post("/update-app")
+def update_application():
+    try:
+        data = request.json
+        app = Application.from_json(data)
+        applications = {}
+        with open("applications.csv", "r", newline="\n") as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                row_app = Application.from_dict(row)
+                applications[row_app.id] = row_app
+
+        applications[app.id] = app
+        with open("applications.csv", "w", newline="\n") as file:
+            writer = csv.DictWriter(
+                file, fieldnames=[f.name for f in fields(Application)]
+            )
+            writer.writeheader()
+
+            for app in applications.values():
+                writer.writerow(asdict(app))
+
+        return jsonify(), HTTPStatus.OK
+
+    except Exception as e:
+        print("ERROR", e)
+        return jsonify(), HTTPStatus.INTERNAL_SERVER_ERROR
+
+
 @bp.get("/")
 def index():
     return render_template("index.html")

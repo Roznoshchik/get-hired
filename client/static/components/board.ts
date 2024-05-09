@@ -23,7 +23,7 @@ class Board extends HTMLElement {
       const stage: ApplicationStage = app.stage;
       this.divided_apps.get(stage)?.push(app);
     }
-    this.classList.add('board')
+    this.classList.add("board");
     this.render();
   }
 
@@ -41,17 +41,70 @@ class Board extends HTMLElement {
     this.querySelector(".columns")?.append(...columns);
   }
 
+  async updateApplication(app: Application, updatedApp: Application) {
+    let appIsUpdated = false;
+    for (let key of Object.keys(app)) {
+      if (
+        app[key as keyof Application] != updatedApp[key as keyof Application]
+      ) {
+        appIsUpdated = true;
+        break;
+      }
+    }
+    if (appIsUpdated) {
+      this.updateAppOnBoard(app, updatedApp);
+      const res = await fetch("/update-app", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedApp),
+      });
+
+      if (!res.ok) {
+        console.error("Couldn't update app: ", app);
+      }
+    }
+  }
+
+  updateAppOnBoard(app: Application, updatedApp: Application) {
+    const currentStage = app.stage;
+    const newStage = updatedApp.stage;
+
+    const currStageColumn = this.querySelector(
+      `stage-column[data-stage="${currentStage}"]`
+    ) as Column;
+
+    const newStageColumn = this.querySelector(
+      `stage-column[data-stage="${newStage}"]`
+    ) as Column;
+
+    this.applications = this.applications.map((app) =>
+      app.id == updatedApp.id ? updatedApp : app
+    );
+
+    currStageColumn.apps = currStageColumn.apps.filter(
+      (stageApp) => stageApp.id != updatedApp.id
+    );
+    newStageColumn.apps.push(updatedApp);
+    newStageColumn.render();
+
+    if (currentStage != newStage) {
+      currStageColumn.render();
+    }
+  }
+
   async postData() {
     const res = await fetch("/data", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(this.applications)
-    })
+      body: JSON.stringify(this.applications),
+    });
 
     if (!res.ok) {
-      console.error("Couldn't save data")
+      console.error("Couldn't save data");
     }
   }
 }

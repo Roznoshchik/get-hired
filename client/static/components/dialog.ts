@@ -11,10 +11,39 @@ class JobDialog extends HTMLDialogElement {
     this.onclose = () => {
       const name = this.querySelector("#name") as HTMLInputElement;
       const notes = this.querySelector("#notes") as HTMLTextAreaElement;
+      const pointsOfContact = this.querySelector("#pointsOfContact") as HTMLTextAreaElement;
       const stage = this.querySelector("#stage") as HTMLSelectElement;
       const appliedDate = this.querySelector(
         "#appliedDate"
       ) as HTMLInputElement;
+      const lastAction = this.querySelector("#lastAction") as HTMLInputElement;
+      const url = this.querySelector("#url") as HTMLInputElement;
+      const answered = this.querySelector("#answered") as HTMLInputElement;
+      const rejected = this.querySelector("#rejected") as HTMLInputElement;
+      const usedCoverLetter = this.querySelector(
+        "#usedCoverLetter"
+      ) as HTMLInputElement;
+      const coverLetterName = this.querySelector(
+        "#coverLetterName"
+      ) as HTMLInputElement;
+
+      const updatedApp: Application = {
+        id: this.app.id,
+        name: name.value,
+        notes: notes.value,
+        pointsOfContact: pointsOfContact.value,
+        stage: stage.value as ApplicationStage,
+        appliedDate: this.toUnixTimestamp(appliedDate.value),
+        lastAction: this.toUnixTimestamp(lastAction.value),
+        url: url.value,
+        answered: answered.checked,
+        rejected: rejected.checked,
+        usedCoverLetter: usedCoverLetter.checked,
+        coverLetterName: coverLetterName.value,
+      };
+
+      const board = document.querySelector("job-board") as Board;
+      board.updateApplication(this.app, updatedApp);
 
       this.remove();
     };
@@ -46,7 +75,7 @@ class JobDialog extends HTMLDialogElement {
 
     this.innerHTML = /*html*/ `
       <button id="close" aria-label="close">X</button>
-      <input readonly id="name"  value="${this.app.name}" />
+      <input type="text" readonly id="name"  value="${this.app.name}" />
 
       <label for="url">Url</label>
       <input readonly type="text" id="url" value="${this.app.url}"/>
@@ -54,6 +83,13 @@ class JobDialog extends HTMLDialogElement {
       <label for="notes">Notes</label>
       <div class="textarea-wrapper">
         <textarea readonly id="notes">${this.app.notes}</textarea>
+      </div>
+
+      <label for="pointsOfContact">Points of contact</label>
+      <div class="textarea-wrapper">
+        <textarea readonly id="pointsOfContact">${
+          this.app.pointsOfContact
+        }</textarea>
       </div>
 
       <label for="stage">stage</label>
@@ -95,15 +131,17 @@ class JobDialog extends HTMLDialogElement {
       }"/>
     `;
 
-    const notes = this.querySelector("#notes") as HTMLTextAreaElement;
-    notes.oninput = () => {
-      notes.style.height = "auto";
-      notes.style.height = notes.scrollHeight + "px";
-    };
-    notes.onclick = () => (notes.readOnly = false);
-
     const close = this.querySelector("#close") as HTMLButtonElement;
     close.onclick = () => this.close();
+
+    const textareas = this.querySelectorAll("textarea");
+    textareas.forEach((textarea) => {
+      textarea.oninput = () => {
+        textarea.style.height = "auto";
+        textarea.style.height = textarea.scrollHeight + "px";
+      };
+      textarea.onclick = () => (textarea.readOnly = false);
+    });
 
     const inputs = this.querySelectorAll<HTMLInputElement>("input[type='text']");
     inputs.forEach((input) => (input.onclick = () => (input.readOnly = false)));

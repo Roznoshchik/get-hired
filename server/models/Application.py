@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from enum import Enum
 import time
+from uuid import uuid4
 
 
 class ApplicationStage(Enum):
@@ -19,6 +20,7 @@ class ApplicationStage(Enum):
 @dataclass
 class Application:
     name: str
+    id: str = uuid4().hex
     applied_date: int = int(time.time())
     last_action: int = int(time.time())
     stage: ApplicationStage = ApplicationStage.TO_APPLY.value
@@ -31,17 +33,18 @@ class Application:
     cover_letter_name: str = ""
 
     @classmethod
-    def from_dict(cls, dict):
-        dict["stage"] = ApplicationStage(dict["stage"]).value
-        dict["answered"] = dict["answered"].upper() == "TRUE"
-        dict["rejected"] = dict["rejected"].upper() == "TRUE"
-        dict["used_cover_letter"] = dict["used_cover_letter"].upper() == "TRUE"
+    def from_dict(cls, data):
+        data["stage"] = ApplicationStage(data["stage"]).value
+        data["answered"] = data["answered"].upper() == "TRUE"
+        data["rejected"] = data["rejected"].upper() == "TRUE"
+        data["used_cover_letter"] = data["used_cover_letter"].upper() == "TRUE"
 
-        return cls(**dict)
+        return cls(**data)
 
     def to_json(self):
         """returns camelCased dictionary ready for serializing"""
         return {
+            "id": self.id,
             "name": self.name,
             "appliedDate": self.applied_date,
             "lastAction": self.last_action,
@@ -56,18 +59,19 @@ class Application:
         }
 
     @classmethod
-    def from_json(cls, dict):
+    def from_json(cls, data):
         """loads an Application from a camelCased dictionary"""
         return cls(
-            name=dict["name"],
-            applied_date=dict["appliedDate"],
-            last_action=dict["lastAction"],
-            stage=dict["stage"],
-            answered=dict["answered"],
-            rejected=dict["rejected"],
-            points_of_contact=dict["pointsOfContact"],
-            notes=dict["notes"],
-            url=dict["url"],
-            used_cover_letter=dict["usedCoverLetter"],
-            cover_letter_name=dict["coverLetterName"],
+            id=data["id"],
+            name=data["name"],
+            applied_date=data["appliedDate"],
+            last_action=data["lastAction"],
+            stage=data["stage"],
+            answered=data["answered"],
+            rejected=data["rejected"],
+            points_of_contact=data["pointsOfContact"],
+            notes=data["notes"],
+            url=data["url"],
+            used_cover_letter=data["usedCoverLetter"],
+            cover_letter_name=data["coverLetterName"],
         )

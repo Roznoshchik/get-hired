@@ -13,6 +13,7 @@ declare global {
 
 
   type Application = {
+    id: string;
     name: string;
     appliedDate: number;
     lastAction: number;
