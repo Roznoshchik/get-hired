@@ -11,7 +11,7 @@ A simple application for tracking your job search
 - [X] make job board functional
 - [X] send updates to server
 - [X] make application modal to view details
-- [ ] persist changes in modal to csv
+- [X] persist changes in modal to csv
 - [ ] create statistics board
 - [ ] create recommendations panel
 - [ ] create filters
