@@ -13,6 +13,7 @@ A simple application for tracking your job search
 - [X] make application modal to view details
 - [X] persist changes in modal to csv
 - [X] fix date handling and conversion
+- [ ] rejected should not be a stage - it should be a boolean?
 - [ ] create statistics board
 - [ ] create recommendations panel
 - [ ] create filters
