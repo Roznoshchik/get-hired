@@ -1,11 +1,11 @@
 name,id,applied_date,last_action,stage,answered,rejected,points_of_contact,notes,url,used_cover_letter,cover_letter_name
-TechCorp,e25a7fb7de97446c99a28adc344312a4,1721011400,1721011500,Applied,True,False,hr@techcorp.com,"Great opportunity, follow up next week",http://techcorp.com/careers,True,Cover_Letter_TechCorp
-InnovateLLC,dbfec46fc5bd46d3bbcde6d7f334d20d,1720925000,1720925100,Waiting to apply,True,False,hiring@innovatellc.com,Need to prepare for technical interview,http://innovatellc.com/jobs,True,Cover_Letter_InnovateLLC
-HealthPlus,7b2238b9762e427ea85ac7132bbd5f10,1720838600,1720838700,Waiting to apply,True,False,contact@healthplus.com,"Offer received, considering options",http://healthplus.com/job3,False,
-EduSoft,4712dedf090c44d9b571e02aaff09561,1720065600,1720065600,Waiting to apply,False,True,careers@edusoft.com,"Not a fit for the role, feedback was positive",http://edusoft.com/job4,False,
-AutoDesign,5798ff582ab74dbba8529039376f187c,1720665800,1720665900,Stage one - intro call,False,False,apply@autodesign.com,"Interview scheduled, need to confirm date",http://autodesign.com/careers,True,Cover_Letter_AutoDesign
-FinancePro,b587eeb41e764b2a889e620cca6323cd,1720579400,1720579500,Stage two - skills check,False,False,info@financepro.com,"All stages complete, awaiting decision",http://financepro.com/careers,False,
-BioTechX,82ec3640ecae4fbdb67e352149959745,1720493000,1720493100,Waiting to apply,False,False,hr@biotechx.com,Cultural fit interview next week,http://biotechx.com/job7,True,Cover_Letter_BioTechX
-GreenEnergy,0403a063e495431d9ae53eef1a2c8062,1720406600,1720406700,Applied,True,False,jobs@greenenergy.com,"Good first call, very engaging",http://greenenergy.com/careers,False,
-MegaMedia,03d24dac81cd4dca9584718aa3a12330,1720320200,1720320300,Waiting to apply,False,False,careers@megamedia.com,"Applied last week, no response yet",http://megamedia.com/jobs,True,Cover_Letter_MegaMedia
-CreativeSolutions,08280257b9b0418399d4e123bab43260,1720233800,1720233900,Waiting to apply,False,False,hire@creativesolutions.com,Will check in two weeks if no reply,http://creativesolutions.com/careers,True,Cover_Letter_CreativeSolutions
+TechCorp2,e25a7fb7de97446c99a28adc344312a4,2024-07-15,2024-07-15,Applied,True,False,hr@techcorp.com,"Great opportunity, follow up next week",http://techcorp.com/careers,True,Cover_Letter_TechCorp
+InnovateLLC,dbfec46fc5bd46d3bbcde6d7f334d20d,2024-07-14,2024-07-14,Waiting to apply,True,False,hiring@innovatellc.com,Need to prepare for technical interview,http://innovatellc.com/jobs,True,Cover_Letter_InnovateLLC
+HealthPlus,7b2238b9762e427ea85ac7132bbd5f10,2024-07-13,2024-07-13,Waiting to apply,True,False,contact@healthplus.com,"Offer received, considering options",http://healthplus.com/job3,False,
+EduSoft,4712dedf090c44d9b571e02aaff09561,2024-07-04,2024-07-04,Waiting to apply,False,True,careers@edusoft.com,"Not a fit for the role, feedback was positive",http://edusoft.com/job4,False,
+AutoDesign,5798ff582ab74dbba8529039376f187c,2024-07-11,2024-07-11,Stage one - intro call,False,False,apply@autodesign.com,"Interview scheduled, need to confirm date",http://autodesign.com/careers,True,Cover_Letter_AutoDesign
+FinancePro,b587eeb41e764b2a889e620cca6323cd,2024-07-10,2024-07-10,Stage two - skills check,False,False,info@financepro.com,"All stages complete, awaiting decision",http://financepro.com/careers,False,
+BioTechX,82ec3640ecae4fbdb67e352149959745,2024-07-09,2024-07-09,Waiting to apply,False,False,hr@biotechx.com,Cultural fit interview next week,http://biotechx.com/job7,True,Cover_Letter_BioTechX
+GreenEnergy2,0403a063e495431d9ae53eef1a2c8062,2024-07-09,2024-07-08,Applied,True,False,jobs@greenenergy.com,"Good first call, very engaging",http://greenenergy.com/careers,False,
+MegaMedia,03d24dac81cd4dca9584718aa3a12330,2024-07-07,2024-07-07,Waiting to apply,False,False,careers@megamedia.com,"Applied last week, no response yet",http://megamedia.com/jobs,True,Cover_Letter_MegaMedia
+CreativeSolutions,08280257b9b0418399d4e123bab43260,2024-07-06,2024-07-06,Waiting to apply,False,False,hire@creativesolutions.com,Will check in two weeks if no reply,http://creativesolutions.com/careers,True,Cover_Letter_CreativeSolutions

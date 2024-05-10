@@ -15,8 +15,8 @@ declare global {
   type Application = {
     id: string;
     name: string;
-    appliedDate: number;
-    lastAction: number;
+    appliedDate: string;
+    lastAction: string;
     stage: ApplicationStage;
     answered: boolean;
     rejected: boolean;

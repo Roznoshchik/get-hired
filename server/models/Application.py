@@ -1,6 +1,6 @@
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from enum import Enum
-import time
 from uuid import uuid4
 
 
@@ -17,12 +17,18 @@ class ApplicationStage(Enum):
     DECLINED_OFFER = "Offer declined"
 
 
+def get_date():
+    current_utc_datetime = datetime.now(timezone.utc)
+    formatted_date = current_utc_datetime.strftime("%Y-%m-%d")
+    return formatted_date
+
+
 @dataclass
 class Application:
     name: str
     id: str = uuid4().hex
-    applied_date: int = int(time.time())
-    last_action: int = int(time.time())
+    applied_date: str = get_date()
+    last_action: str = get_date()
     stage: ApplicationStage = ApplicationStage.TO_APPLY.value
     answered: bool = False
     rejected: bool = False

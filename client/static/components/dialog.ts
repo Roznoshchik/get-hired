@@ -33,8 +33,8 @@ class JobDialog extends HTMLDialogElement {
         notes: notes.value,
         pointsOfContact: pointsOfContact.value,
         stage: stage.value as ApplicationStage,
-        appliedDate: this.toUnixTimestamp(appliedDate.value),
-        lastAction: this.toUnixTimestamp(lastAction.value),
+        appliedDate: appliedDate.value,
+        lastAction: lastAction.value,
         url: url.value,
         answered: answered.checked,
         rejected: rejected.checked,
@@ -70,8 +70,6 @@ class JobDialog extends HTMLDialogElement {
   render() {
     const board = document.querySelector("job-board") as Board;
     this.classList.add("job-dialog");
-    const appliedDate = this.getDate(this.app.appliedDate);
-    const lastAction = this.getDate(this.app.lastAction);
 
     this.innerHTML = /*html*/ `
       <button id="close" aria-label="close">X</button>
@@ -105,10 +103,10 @@ class JobDialog extends HTMLDialogElement {
       </select>
 
       <label for="appliedDate">Applied on</label>
-      <input type="date" id="appliedDate" value="${appliedDate}" />
+      <input type="date" id="appliedDate" value="${this.app.appliedDate}" />
 
       <label for="lastAction">Last action</label>
-      <input type="date" id="lastAction" value="${lastAction}" />
+      <input type="date" id="lastAction" value="${this.app.lastAction}" />
 
       <label for="answered">Answered</label>
       <input type="checkbox" id="answered" ${
@@ -148,25 +146,6 @@ class JobDialog extends HTMLDialogElement {
 
   }
 
-  getDate(unix_timestamp: number) {
-    const tzOffset = new Date().getTimezoneOffset() * 60000; // Offset in milliseconds
-    const date = new Date(unix_timestamp * 1000 - tzOffset); // Apply the timezone offset
-
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are zero-based
-    const day = String(date.getDate()).padStart(2, "0");
-
-    const dateString = `${year}-${month}-${day}`;
-    return dateString;
-  }
-
-  toUnixTimestamp(dateString: string): number {
-    const date = new Date(dateString);
-    const tzOffset = date.getTimezoneOffset() * 60000;
-    const unixTimestamp = Math.floor((date.getTime() + tzOffset) / 1000);
-
-    return unixTimestamp;
-  }
 }
 
 if (!customElements.get("job-dialog")) {
