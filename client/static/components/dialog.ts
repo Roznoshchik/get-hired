@@ -20,6 +20,7 @@ class JobDialog extends HTMLDialogElement {
       const url = this.querySelector("#url") as HTMLInputElement;
       const answered = this.querySelector("#answered") as HTMLInputElement;
       const rejected = this.querySelector("#rejected") as HTMLInputElement;
+      const offerDeclined = this.querySelector("#offerDeclined") as HTMLInputElement;
       const usedCoverLetter = this.querySelector(
         "#usedCoverLetter"
       ) as HTMLInputElement;
@@ -38,6 +39,7 @@ class JobDialog extends HTMLDialogElement {
         url: url.value,
         answered: answered.checked,
         rejected: rejected.checked,
+        offerDeclined: offerDeclined.checked,
         usedCoverLetter: usedCoverLetter.checked,
         coverLetterName: coverLetterName.value,
       };
@@ -115,6 +117,11 @@ class JobDialog extends HTMLDialogElement {
 
       <label for="rejected">Rejected</label>
       <input type="checkbox" id="rejected" ${
+        this.app.rejected ? "checked" : ""
+      }/>
+
+      <label for="offerDeclined">Offer declined?</label>
+      <input type="checkbox" id="offerDeclined" ${
         this.app.rejected ? "checked" : ""
       }/>
 

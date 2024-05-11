@@ -1,20 +1,18 @@
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from enum import Enum
+from typing import List
 from uuid import uuid4
 
 
 class ApplicationStage(Enum):
     TO_APPLY = "Waiting to apply"
     APPLIED = "Applied"
-    SCHEDULED = "Interview scheduled"
     STAGE_ONE = "Stage one - intro call"
     STAGE_TWO = "Stage two - skills check"
     STAGE_THREE = "Stage three - cultural fit"
-    WAITING_FOR_OFFER = "Waiting for offer"
-    REJECTED = "Rejected"
+    REFERENCE_CHECK = "Reference check"
     RECEIVED_OFFER = "Received offer"
-    DECLINED_OFFER = "Offer declined"
 
 
 def get_date():
@@ -32,6 +30,7 @@ class Application:
     stage: ApplicationStage = ApplicationStage.TO_APPLY.value
     answered: bool = False
     rejected: bool = False
+    offer_declined: bool = False
     points_of_contact: str = ""
     notes: str = ""
     url: str = ""
@@ -43,6 +42,7 @@ class Application:
         data["stage"] = ApplicationStage(data["stage"]).value
         data["answered"] = data["answered"].upper() == "TRUE"
         data["rejected"] = data["rejected"].upper() == "TRUE"
+        data["offer_declined"] = data["offer_declined"].upper() == "TRUE"
         data["used_cover_letter"] = data["used_cover_letter"].upper() == "TRUE"
 
         return cls(**data)
@@ -57,6 +57,7 @@ class Application:
             "stage": self.stage,
             "answered": self.answered,
             "rejected": self.rejected,
+            "offerDeclined": self.offer_declined,
             "pointsOfContact": self.points_of_contact,
             "notes": self.notes,
             "url": self.url,
@@ -75,6 +76,7 @@ class Application:
             stage=data["stage"],
             answered=data["answered"],
             rejected=data["rejected"],
+            offer_declined=data["offerDeclined"],
             points_of_contact=data["pointsOfContact"],
             notes=data["notes"],
             url=data["url"],

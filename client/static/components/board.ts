@@ -5,14 +5,11 @@ class Board extends HTMLElement {
   divided_apps: Map<ApplicationStage, Application[]> = new Map([
     ["Waiting to apply", []],
     ["Applied", []],
-    ["Interview scheduled", []],
     ["Stage one - intro call", []],
     ["Stage two - skills check", []],
     ["Stage three - cultural fit", []],
-    ["Waiting for offer", []],
-    ["Rejected", []],
+    ["Reference check", []],
     ["Received offer", []],
-    ["Offer declined", []],
   ]);
 
   constructor(applications: Application[]) {

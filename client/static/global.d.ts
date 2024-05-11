@@ -1,16 +1,12 @@
 declare global {
   type ApplicationStage =
-    "Waiting to apply" |
-    "Applied" |
-    "Interview scheduled" |
-    "Stage one - intro call" |
-    "Stage two - skills check" |
-    "Stage three - cultural fit" |
-    "Waiting for offer" |
-    "Rejected" |
-    "Received offer" |
-    "Offer declined";
-
+    | "Waiting to apply"
+    | "Applied"
+    | "Stage one - intro call"
+    | "Stage two - skills check"
+    | "Stage three - cultural fit"
+    | "Reference check"
+    | "Received offer";
 
   type Application = {
     id: string;
@@ -20,6 +16,7 @@ declare global {
     stage: ApplicationStage;
     answered: boolean;
     rejected: boolean;
+    offerDeclined: boolean;
     pointsOfContact: string;
     notes: string;
     url: string;

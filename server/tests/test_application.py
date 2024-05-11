@@ -19,6 +19,7 @@ class ApplicationTests(unittest.TestCase):
                 "stage": "Waiting to apply",
                 "answered": False,
                 "rejected": False,
+                "offer_declined": False,
                 "points_of_contact": "",
                 "notes": "",
                 "url": "",
