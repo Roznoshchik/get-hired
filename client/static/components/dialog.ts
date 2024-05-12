@@ -18,7 +18,6 @@ class JobDialog extends HTMLDialogElement {
       ) as HTMLInputElement;
       const lastAction = this.querySelector("#lastAction") as HTMLInputElement;
       const url = this.querySelector("#url") as HTMLInputElement;
-      const answered = this.querySelector("#answered") as HTMLInputElement;
       const rejected = this.querySelector("#rejected") as HTMLInputElement;
       const offerDeclined = this.querySelector("#offerDeclined") as HTMLInputElement;
       const usedCoverLetter = this.querySelector(
@@ -37,7 +36,6 @@ class JobDialog extends HTMLDialogElement {
         appliedDate: appliedDate.value,
         lastAction: lastAction.value,
         url: url.value,
-        answered: answered.checked,
         rejected: rejected.checked,
         offerDeclined: offerDeclined.checked,
         usedCoverLetter: usedCoverLetter.checked,
@@ -109,11 +107,6 @@ class JobDialog extends HTMLDialogElement {
 
       <label for="lastAction">Last action</label>
       <input type="date" id="lastAction" value="${this.app.lastAction}" />
-
-      <label for="answered">Answered</label>
-      <input type="checkbox" id="answered" ${
-        this.app.answered ? "checked" : ""
-      }/>
 
       <label for="rejected">Rejected</label>
       <input type="checkbox" id="rejected" ${

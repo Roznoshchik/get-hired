@@ -28,7 +28,6 @@ class Application:
     applied_date: str = get_date()
     last_action: str = get_date()
     stage: ApplicationStage = ApplicationStage.TO_APPLY.value
-    answered: bool = False
     rejected: bool = False
     offer_declined: bool = False
     points_of_contact: str = ""
@@ -40,7 +39,6 @@ class Application:
     @classmethod
     def from_dict(cls, data):
         data["stage"] = ApplicationStage(data["stage"]).value
-        data["answered"] = data["answered"].upper() == "TRUE"
         data["rejected"] = data["rejected"].upper() == "TRUE"
         data["offer_declined"] = data["offer_declined"].upper() == "TRUE"
         data["used_cover_letter"] = data["used_cover_letter"].upper() == "TRUE"
@@ -55,7 +53,6 @@ class Application:
             "appliedDate": self.applied_date,
             "lastAction": self.last_action,
             "stage": self.stage,
-            "answered": self.answered,
             "rejected": self.rejected,
             "offerDeclined": self.offer_declined,
             "pointsOfContact": self.points_of_contact,
@@ -74,7 +71,6 @@ class Application:
             applied_date=data["appliedDate"],
             last_action=data["lastAction"],
             stage=data["stage"],
-            answered=data["answered"],
             rejected=data["rejected"],
             offer_declined=data["offerDeclined"],
             points_of_contact=data["pointsOfContact"],

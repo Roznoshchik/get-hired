@@ -14,7 +14,6 @@ declare global {
     appliedDate: string;
     lastAction: string;
     stage: ApplicationStage;
-    answered: boolean;
     rejected: boolean;
     offerDeclined: boolean;
     pointsOfContact: string;

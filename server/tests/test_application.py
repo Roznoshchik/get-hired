@@ -17,7 +17,6 @@ class ApplicationTests(unittest.TestCase):
                 "applied_date": today,
                 "last_action": today,
                 "stage": "Waiting to apply",
-                "answered": False,
                 "rejected": False,
                 "offer_declined": False,
                 "points_of_contact": "",

@@ -9,7 +9,6 @@ class Statistics extends HTMLElement {
   }
 
   render() {
-    console.log("RENDER");
     this.innerHTML = /*html*/ `
     <p>In Progress Total: ${this.inProgress} </p>
     `;
