@@ -1,4 +1,5 @@
 import Column from "./column";
+import Statistics from "./statistics";
 
 class Board extends HTMLElement {
   applications: Application[] = [];
@@ -26,16 +27,21 @@ class Board extends HTMLElement {
 
   render() {
     this.innerHTML = /*html*/ `
-    <h1>Lets Get Hired!</h1>
+    <header>
+      <h1>Lets Get Hired!</h1>
+    </header>
     <div class = "columns">
     </div>
     `;
+
     const columns = Array.from(
       this.divided_apps,
       ([stage, apps]) => new Column(stage, apps, ["column"])
     );
 
     this.querySelector(".columns")?.append(...columns);
+    this.querySelector("header")?.append(new Statistics(this.applications))
+
   }
 
   async updateApplication(app: Application, updatedApp: Application) {
@@ -89,6 +95,7 @@ class Board extends HTMLElement {
     if (currentStage != newStage) {
       currStageColumn.render();
     }
+    this.querySelector<Statistics>("#statistics")?.render();
   }
 
   async postData() {
@@ -104,6 +111,7 @@ class Board extends HTMLElement {
       console.error("Couldn't save data");
     }
   }
+
 }
 
 if (!customElements.get("job-board")) {

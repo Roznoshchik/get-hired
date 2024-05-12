@@ -1,5 +1,6 @@
 import JobCard from "./card";
 import Board from "./board";
+import Statistics from "./statistics";
 
 class Column extends HTMLElement {
   stage: ApplicationStage;
@@ -65,6 +66,7 @@ class Column extends HTMLElement {
         this.appendChild(targetElem);
 
         board.postData()
+        board.querySelector<Statistics>("#statistics")?.render();
       }
     });
   }
