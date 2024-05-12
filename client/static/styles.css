@@ -87,6 +87,12 @@ body {
         border-radius: 12px;
         margin-bottom: 8px;
         cursor: pointer;
+
+        &.rejected {
+          background-color: rgb(240, 232, 232);
+          color: gray;
+          border: gray 1px solid;
+        }
       }
 
     }
