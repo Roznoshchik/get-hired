@@ -14,7 +14,7 @@ A simple application for tracking your job search
 - [X] persist changes in modal to csv
 - [X] fix date handling and conversion
 - [X] Rethink data model and stages
-- [ ] create statistics board
+- [X] create statistics board
 - [ ] create recommendations panel
 - [ ] create filters
 - [ ] create new application

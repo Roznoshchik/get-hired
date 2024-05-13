@@ -1,11 +1,11 @@
 name,id,applied_date,last_action,stage,rejected,offer_declined,points_of_contact,notes,url,used_cover_letter,cover_letter_name
-TechCorp2,e25a7fb7de97446c99a28adc344312a4,2024-07-15,2024-07-15,Waiting to apply,False,False,hr@techcorp.com,"Great opportunity, follow up next week",http://techcorp.com/careers,True,Cover_Letter_TechCorp
+TechCorp2,e25a7fb7de97446c99a28adc344312a4,2024-07-15,2024-07-15,Stage one - intro call,False,False,hr@techcorp.com,"Great opportunity, follow up next week",http://techcorp.com/careers,True,Cover_Letter_TechCorp
 InnovateLLC,dbfec46fc5bd46d3bbcde6d7f334d20d,2024-07-14,2024-07-14,Applied,False,False,hiring@innovatellc.com,Need to prepare for technical interview,http://innovatellc.com/jobs,True,Cover_Letter_InnovateLLC
 HealthPlus,7b2238b9762e427ea85ac7132bbd5f10,2024-07-13,2024-07-13,Stage two - skills check,False,False,contact@healthplus.com,"Offer received, considering options",http://healthplus.com/job3,False,
 EduSoft,4712dedf090c44d9b571e02aaff09561,2024-07-04,2024-07-04,Applied,True,True,careers@edusoft.com,"Not a fit for the role, feedback was positive",http://edusoft.com/job4,False,
-AutoDesign,5798ff582ab74dbba8529039376f187c,2024-07-11,2024-07-11,Applied,False,False,apply@autodesign.com,"Interview scheduled, need to confirm date",http://autodesign.com/careers,True,Cover_Letter_AutoDesign
-FinancePro,b587eeb41e764b2a889e620cca6323cd,2024-07-10,2024-07-10,Applied,False,False,info@financepro.com,"All stages complete, awaiting decision",http://financepro.com/careers,False,
-BioTechX,82ec3640ecae4fbdb67e352149959745,2024-07-09,2024-07-09,Stage one - intro call,False,False,hr@biotechx.com,Cultural fit interview next week,http://biotechx.com/job7,True,Cover_Letter_BioTechX
+AutoDesign,5798ff582ab74dbba8529039376f187c,2024-07-11,2024-07-11,Reference check,True,False,apply@autodesign.com,"Interview scheduled, need to confirm date",http://autodesign.com/careers,True,Cover_Letter_AutoDesign
+FinancePro,b587eeb41e764b2a889e620cca6323cd,2024-07-10,2024-07-10,Stage one - intro call,False,False,info@financepro.com,"All stages complete, awaiting decision",http://financepro.com/careers,False,
+BioTechX,82ec3640ecae4fbdb67e352149959745,2024-07-09,2024-07-09,Applied,False,False,hr@biotechx.com,Cultural fit interview next week,http://biotechx.com/job7,True,Cover_Letter_BioTechX
 GreenEnergy2,0403a063e495431d9ae53eef1a2c8062,2024-07-09,2024-07-08,Received offer,False,False,jobs@greenenergy.com,"Good first call, very engaging",http://greenenergy.com/careers,False,
-MegaMedia,03d24dac81cd4dca9584718aa3a12330,2024-07-07,2024-07-07,Stage one - intro call,False,False,careers@megamedia.com,"Applied last week, no response yet",http://megamedia.com/jobs,True,Cover_Letter_MegaMedia
-CreativeSolutions,08280257b9b0418399d4e123bab43260,2024-07-06,2024-07-06,Waiting to apply,False,False,hire@creativesolutions.com,Will check in two weeks if no reply,http://creativesolutions.com/careers,True,Cover_Letter_CreativeSolutions
+MegaMedia,03d24dac81cd4dca9584718aa3a12330,2024-07-07,2024-07-07,Stage three - cultural fit,True,True,careers@megamedia.com,"Applied last week, no response yet",http://megamedia.com/jobs,True,Cover_Letter_MegaMedia
+CreativeSolutions,08280257b9b0418399d4e123bab43260,2024-07-06,2024-07-06,Stage three - cultural fit,False,False,hire@creativesolutions.com,Will check in two weeks if no reply,http://creativesolutions.com/careers,True,Cover_Letter_CreativeSolutions

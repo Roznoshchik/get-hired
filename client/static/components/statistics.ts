@@ -9,22 +9,42 @@ class Statistics extends HTMLElement {
   }
 
   render() {
+    const applied = this.apps.filter(app => app.stage != "Waiting to apply");
+    const stageOne = applied.filter(app => app.stage != "Applied");
+    const stageTwo = stageOne.filter(app => app.stage != "Stage one - intro call");
+    const stageThree = stageTwo.filter(app => app.stage != "Stage two - skills check");
+    const referenceCheck = stageThree.filter(app => app.stage != "Stage three - cultural fit");
+    const receivedOffer = referenceCheck.filter(app => app.stage != "Reference check");
+
     this.innerHTML = /*html*/ `
-    <p>In Progress Total: ${this.inProgress} </p>
+    <p><strong>Applied:</strong> ${applied.length} </p>
+    <p><strong>Stage One:</strong> ${this.getPercent(
+      stageOne.length,
+      applied.length
+    )}</p>
+    <p><strong>Stage Two:</strong> ${this.getPercent(
+      stageTwo.length,
+      stageOne.length
+    )}</p>
+    <p><strong>Stage Three:</strong> ${this.getPercent(
+      stageThree.length,
+      stageTwo.length
+    )}</p>
+    <p><strong>Reference Check:</strong> ${this.getPercent(
+      referenceCheck.length,
+      stageThree.length
+    )}</p>
+    <p><strong>Received Offer:</strong> ${this.getPercent(
+      receivedOffer.length,
+      referenceCheck.length
+    )}</p>
     `;
   }
 
-  get inProgress() {
-    return this.apps.reduce((acc, curr) => {
-      if (
-        curr.stage != "Waiting to apply" &&
-        curr.stage != "Received offer" &&
-        !curr.rejected
-      )
-        acc += 1;
-      return acc;
-    }, 0);
+  getPercent(numerator: number, denominator: number): string {
+    return Math.round(numerator / denominator * 100) + "%"
   }
+
 }
 
 if (!customElements.get("job-statistics")) {
